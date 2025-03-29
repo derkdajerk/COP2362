@@ -1,0 +1,14 @@
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/bin/Debug/net9.0/testbeforeclass
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/bin/Debug/net9.0/testbeforeclass.deps.json
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/bin/Debug/net9.0/testbeforeclass.runtimeconfig.json
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/bin/Debug/net9.0/testbeforeclass.dll
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/bin/Debug/net9.0/testbeforeclass.pdb
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.GeneratedMSBuildEditorConfig.editorconfig
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.AssemblyInfoInputs.cache
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.AssemblyInfo.cs
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.csproj.CoreCompileInputs.cache
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.dll
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/refint/testbeforeclass.dll
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.pdb
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/testbeforeclass.genruntimeconfig.cache
+/Users/derk/Library/CloudStorage/OneDrive-St.PetersburgCollege/COP2362 C# II/testbeforeclass/obj/Debug/net9.0/ref/testbeforeclass.dll
