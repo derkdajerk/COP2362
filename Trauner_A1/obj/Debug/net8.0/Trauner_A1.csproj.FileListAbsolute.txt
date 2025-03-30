@@ -1,0 +1,15 @@
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\bin\Debug\net8.0\Trauner_A1.exe
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\bin\Debug\net8.0\Trauner_A1.deps.json
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\bin\Debug\net8.0\Trauner_A1.runtimeconfig.json
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\bin\Debug\net8.0\Trauner_A1.dll
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\bin\Debug\net8.0\Trauner_A1.pdb
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.GeneratedMSBuildEditorConfig.editorconfig
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.AssemblyInfoInputs.cache
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.AssemblyInfo.cs
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.csproj.CoreCompileInputs.cache
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.sourcelink.json
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.dll
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\refint\Trauner_A1.dll
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.pdb
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\Trauner_A1.genruntimeconfig.cache
+E:\.onedriveSPC\OneDrive - St. Petersburg College\COP2362 C# II\Trauner_A1\obj\Debug\net8.0\ref\Trauner_A1.dll
