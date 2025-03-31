@@ -1,7 +1,7 @@
 ﻿/**
 Name: Derek Trauner
 COP2362 - Assignment 1
-Mar 29, 2025
+Mar 31, 2025
 Summary Statement: I worked on this alone, used ai to help debug type conversions;
 
 <summary>
