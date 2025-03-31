@@ -1,8 +1,14 @@
-﻿/*
+﻿/**
 Name: Derek Trauner
 COP2362 - Assignment 1
 Mar 29, 2025
-Collaboration Statement: I worked on this alone, used ai to help debug type conversions;
+Summary Statement: I worked on this alone, used ai to help debug type conversions;
+
+<summary>
+    This program contains Types to create Student and TestPaper objects.
+    Testpaper implements ITestPaper, an interface for general TestPaper properties.
+    Student implements IStudent, an interface for general Student properties and methods. Causes every instance of Student to have those properties and implement those methods.
+</summary>
  */
 
 namespace Trauner_A1;
@@ -31,7 +37,7 @@ public class TestPaper : ITestPaper
 public interface IStudent
 {
     string[] TestsTaken { get; }
-    void TakeTest(ITestPaper paper, string[] answers);
+    void TakeTest(TestPaper paper, string[] answers);
 }
 
 public class Student : IStudent
@@ -42,11 +48,17 @@ public class Student : IStudent
     {
         get
         {
-            return testsTaken.Count == 0 ? new string[] { "No tests taken" } : testsTaken.ToArray();
+            if (testsTaken.Count == 0)
+            {
+                return new string[] { "No tests taken" };
+            }
+            string[] sortedTests = testsTaken.ToArray();
+            Array.Sort(sortedTests);
+            return sortedTests;
         }
     }
 
-    public void TakeTest(ITestPaper paper, string[] answers)
+    public void TakeTest(TestPaper paper, string[] answers)
     {
         int score = 0;
         int i = 0;
@@ -58,7 +70,7 @@ public class Student : IStudent
                 score++;
             }
         }
-        int percent = score * 100 / paper.MarkScheme.Length;
+        int percent = (int)Math.Round((double)score * 100 / paper.MarkScheme.Length);
         string result = percent >= passMark ? "Passed!" : "Failed!";
         testsTaken.Add($"{paper.Subject}: {result} ({percent}%)");
     }

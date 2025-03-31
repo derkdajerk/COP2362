@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trauner_A1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17df6f83a41848950aa046c39ca417a25b492dab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2e327db9f241b491aa5a853ecdc60a862dd6960")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trauner_A1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trauner_A1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
