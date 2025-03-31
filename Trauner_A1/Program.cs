@@ -7,7 +7,8 @@ Summary Statement: I worked on this alone, used ai to help debug type conversion
 <summary>
     This program contains Types to create Student and TestPaper objects.
     Testpaper implements ITestPaper, an interface for general TestPaper properties.
-    Student implements IStudent, an interface for general Student properties and methods. Causes every instance of Student to have those properties and implement those methods.
+    Student implements IStudent, an interface for general Student properties and methods.
+        -Causes every instance of Student to have those properties and Student must implement those methods from IStudent.
 </summary>
  */
 
@@ -48,8 +49,7 @@ public class Student : IStudent
     {
         get
         {
-            if (testsTaken.Count == 0)
-            {
+            if (testsTaken.Count == 0){
                 return new string[] { "No tests taken" };
             }
             string[] sortedTests = testsTaken.ToArray();
