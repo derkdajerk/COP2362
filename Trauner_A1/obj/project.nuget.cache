@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "05Pb8U1uSgc=",
+  "dgSpecHash": "f+uCTMi35lE=",
   "success": true,
-  "projectFilePath": "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\Trauner_A1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/Trauner_A1.csproj",
+  "expectedPackageFiles": [
+    "/Users/derk/.nuget/packages/microsoft.netcore.app.ref/8.0.12/microsoft.netcore.app.ref.8.0.12.nupkg.sha512",
+    "/Users/derk/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.12/microsoft.aspnetcore.app.ref.8.0.12.nupkg.sha512",
+    "/Users/derk/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.12/microsoft.netcore.app.host.osx-arm64.8.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

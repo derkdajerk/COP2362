@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\Trauner_A1.csproj": {}
+    "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/Trauner_A1.csproj": {}
   },
   "projects": {
-    "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\Trauner_A1.csproj": {
+    "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/Trauner_A1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\Trauner_A1.csproj",
+        "projectUniqueName": "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/Trauner_A1.csproj",
         "projectName": "Trauner_A1",
-        "projectPath": "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\Trauner_A1.csproj",
-        "packagesPath": "C:\\Users\\derek\\.nuget\\packages\\",
-        "outputPath": "E:\\.onedriveSPC\\OneDrive - St. Petersburg College\\COP2362 C# II\\Trauner_A1\\obj\\",
+        "projectPath": "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/Trauner_A1.csproj",
+        "packagesPath": "/Users/derk/.nuget/packages/",
+        "outputPath": "/Users/derk/Documents/GitHub Repositories/COP2362/Trauner_A1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\derek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/derk/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,12 +54,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
