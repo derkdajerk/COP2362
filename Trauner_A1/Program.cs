@@ -141,6 +141,11 @@ namespace Trauner2 // Namespace containins code for version 2, menu items and re
                 _out.WriteLine($"Printing a sub-Menu-Item: {_name}");
             }
         }
+
+        public void HandleUserChoice(string userChoice)
+        {
+
+        }
     }
 }
 
@@ -182,6 +187,30 @@ class Program
                     option1.PrintMenuItem();
                     Console.WriteLine("Choose a sub option (a,b,c,d): ");
                     string? option1SubChoice = Console.ReadLine();
+                    switch (option1SubChoice)
+                    {
+                        case "a":
+                            Console.WriteLine("Enter the name for the test: ");
+                            string? testName = Console.ReadLine();
+                            Console.WriteLine("Enter the markScheme for the test (1A, 2B, 3C, 4D, 5E, 6F,...): ");
+                            string? preFormatMarkScheme = Console.ReadLine();
+                            string[] markScheme = preFormatMarkScheme == null ? [] : preFormatMarkScheme.Split(",", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                            Console.WriteLine("Enter the passMark for the test (ex: 75%): ");
+                            string? passMark = Console.ReadLine();
+                            Trauner_A1.TestPaper paperMade = new Trauner_A1.TestPaper(testName, markScheme, passMark);
+                            break;
+                        case "b":
+                            Console.WriteLine("Not finished yet.");
+                            break;
+                        case "c":
+                            Console.WriteLine("Not finished yet.");
+                            break;
+                        case "d":
+
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "2":
                     Console.WriteLine();

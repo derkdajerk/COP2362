@@ -1,0 +1,4 @@
+testing,1a|2b|3c|4f,19%
+primitive elements,1b|2f|3g|4t,99%
+science,1c|2b|3g|4t,9%
+math,1c|2b|3g|4t|1c|2b|3g|4t,1%
