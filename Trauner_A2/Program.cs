@@ -5,14 +5,16 @@ using Trauner2;
 /**
 Name: Derek Trauner
 COP2362 - Assignment 1
-Mar 31, 2025
-Summary Statement: I worked on this alone, used ai to help debug type conversions;
+Apr 24, 2025
+Summary Statement: I worked on this alone.
 
 <summary>
     This program contains Types to create Student and TestPaper objects.
     Testpaper implements ITestPaper, an interface for general TestPaper properties.
     Student implements IStudent, an interface for general Student properties and methods.
         -Causes every instance of Student to have those properties and Student must implement those methods from IStudent.
+
+    Now implements creating,writing, and viewing both students and tests to a txt file to read into the console.
 </summary>
  */
 namespace Trauner_A1 // Namespace including interfaces from version 1.
@@ -28,6 +30,8 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
     {
         public string Subject { get; }
         public string[] MarkScheme { get; }
+        // Confused on what this means in the instructions
+        // c.	A Minimum Mark or passing grade: Assignment one uses a string representation. However, the Mark or Passing Grade should match the grading scheme.  
         public string PassMark { get; }
 
         public TestPaper(string subject, string[] markScheme, string passMark)
@@ -42,6 +46,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
     {
         string Name { get; }
         string[] TestsTaken { get; }
+        int id { get; }
         void TakeTest(TestPaper paper, string[] answers);
     }
 
@@ -49,10 +54,13 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
     {
         private List<string> testsTaken = new List<string>();
         string IStudent.Name => _name;
+        int IStudent.id => _id;
         public string _name;
+        public int _id;
 
         public Student(string name)
         {
+            _id = new Random().Next(1, 10000);
             _name = name;
         }
 
@@ -91,7 +99,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
 
 
 
-namespace Trauner2 // Namespace containins code for version 2, menu items and read/write functions
+namespace Trauner2 // Namespace containins code for version 2, menu items and read/write functions for students and tests
 {
     public interface IMenuItem
     {
@@ -150,7 +158,7 @@ namespace Trauner2 // Namespace containins code for version 2, menu items and re
             }
         }
 
-        public void HandleUserChoice(string userChoice)
+        public void HandleUserChoice(string userChoice) // Future use maybe
         {
 
         }
@@ -163,10 +171,11 @@ class Program
     static List<Student> studentsList = new List<Student>();
     static void Main(string[] args)
     {
-        // string testsPath = "C:\\Users\\derek\\Documents\\GitHub Repositories\\COP2362\\Trauner_A2\\tests.txt"; // Use this but insert full path if below is not working.
-        string testsPath = "../../../tests.txt"; // Used this because when i run project its directory is in the bin/debug/net8.0 folder.
+        // string testsPath = "C:\\Users\\derek\\Documents\\GitHub Repositories\\COP2362\\Trauner_A2\\tests.txt"; 
+        // ^^^Use this but insert full path if below is not working.
+        string testsPath = "../../../tests.txt"; // Used this because when project is ran its directory is in the bin/debug/net8.0 folder.
         string studentsPath = "../../../students.txt";
-        // loadTests(testsPath);
+        // loadTests(testsPath); // did not use these loading methods since once you run program you wouldnt be able to view new students made in the same instance if it loads all students at start
         // loadStudents(studentsPath);
         ConsoleMenuItem option1 = new ConsoleMenuItem(Console.In, Console.Out, "1. TESTS", false, null); // Initialize all menu options
         ConsoleMenuItem option1a = new ConsoleMenuItem(Console.In, Console.Out, "a. ADD", true, option1);
@@ -186,7 +195,7 @@ class Program
         ConsoleMenuItem option5 = new ConsoleMenuItem(Console.In, Console.Out, "5. EXIT", false, null);
 
         bool running = true;
-        while (running)
+        while (running) // looping menu
         {
             option1.PrintMenuItem();
             option2.PrintMenuItem();
@@ -276,7 +285,7 @@ class Program
                             try
                             {
                                 using StreamWriter writer = new StreamWriter(studentsPath, append: true);
-                                writer.WriteLine($"{studentMade._name}");
+                                writer.WriteLine($"{studentMade._id},{studentMade._name},{string.Join(",", studentMade.TestsTaken)}");
                                 Console.WriteLine($"Successfully wrote to {studentsPath}");
                             }
                             catch (Exception ex)
@@ -303,7 +312,9 @@ class Program
                                 Console.WriteLine("\nStudents:");
                                 while ((line = viewStudents.ReadLine()) != null)
                                 {
-                                    Console.WriteLine($"{i++}- Name: {line}");
+                                    string[] lineParts = line.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                                    Console.WriteLine($"{i++}- ID: {lineParts[0]}| Name: {lineParts[1]}| Tests Taken: {lineParts[2]}");
+                                    // Only grabs first part of tests taken string array since the method for making a student taking a test is not needed yet for the program
                                 }
                             }
                             catch (Exception ex)
@@ -342,13 +353,13 @@ class Program
             }
         }
 
-
+        // Old code form version 1
         // Trauner_A1.TestPaper paper1 = new Trauner_A1.TestPaper("Maths", new string[] { "1A", "2C", "3D", "4A", "5A" }, "60%");
         // Trauner_A1.TestPaper paper2 = new Trauner_A1.TestPaper("Chemistry", new string[] { "1C", "2C", "3D", "4A" }, "75%");
-        TestPaper paper3 = new TestPaper("Computing", new string[] { "1D", "2C", "3C", "4B", "5D", "6C", "7A" }, "75%");
+        // TestPaper paper3 = new TestPaper("Computing", new string[] { "1D", "2C", "3C", "4B", "5D", "6C", "7A" }, "75%");
 
         // Trauner_A1.Student student1 = new Trauner_A1.Student();
-        Student student2 = new Student("student2");
+        // Student student2 = new Student("student2");
 
         // Console.WriteLine(string.Join(", ", student1.TestsTaken));
         // student1.TakeTest(paper1, new string[] { "1A", "2D", "3D", "4A", "5A" });
@@ -360,7 +371,7 @@ class Program
     }
 
 
-
+    // Unused methods, might implement in final version
     static void loadTests(string testsPath) //testPapersList
     {
         try
