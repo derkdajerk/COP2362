@@ -109,7 +109,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
             int score = 0;
             int i = 0;
             int passMark = int.Parse(paper.PassMark.TrimEnd('%'));
-            foreach (var answer in paper.MarkScheme)
+            foreach (string answer in paper.MarkScheme)
             {
                 if (answer == answers[i++])
                 {
@@ -533,6 +533,13 @@ class Program
 
     static void GiveTest()
     {
+        ViewStudents();
+        Console.WriteLine("Which student would you like to give a test to?:");
+        int studentIndex = int.Parse(Console.ReadLine()!.Trim()) - 1;
+        Student student = studentsList[studentIndex];
+        ViewTests();
+        Console.WriteLine("Which test would you like to give them?:");
+
 
     }
 
