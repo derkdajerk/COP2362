@@ -1,4 +1,6 @@
-999,Derek Trauner,No tests taken
-3611,Mark Smith,No tests taken
-9492,John Doe,No tests taken
-8660,Derk Trainer,No tests taken
+3611,Mark Smith,Programming: Passed! (100%)
+8660,Derk Trainer,Programming: Passed! (100%)
+3927,John Doe,Programming: Passed! (100%)
+8130,tester student,Chemistry: Failed! (25%),Maths: Passed! (80%),Programming: Passed! (100%)
+7098,Derek Trauner,AlgebrA: Passed! (100%),Programming: Passed! (100%)
+948,testlast,AlgebrA: Passed! (100%),Chemistry: Failed! (50%),Computing: Passed! (100%),History: Passed! (100%),Maths: Failed! (20%),Programming: Passed! (75%),Science: Failed! (0%)

@@ -235,6 +235,22 @@ class Program
                     Console.WriteLine("Goodbye!");
                     running = false;
                     break;
+                case "6":
+                    Trauner_A1.TestPaper paper1 = new Trauner_A1.TestPaper("Maths", new string[] { "1A", "2C", "3D", "4A", "5A" }, "60%");
+                    Trauner_A1.TestPaper paper2 = new Trauner_A1.TestPaper("Chemistry", new string[] { "1C", "2C", "3D", "4A" }, "75%");
+                    Trauner_A1.TestPaper paper3 = new Trauner_A1.TestPaper("Computing", new string[] { "1D", "2C", "3C", "4B", "5D", "6C", "7A" }, "75%");
+
+                    Trauner_A1.Student student1 = new Trauner_A1.Student();
+                    Trauner_A1.Student student2 = new Trauner_A1.Student();
+
+                    Console.WriteLine(string.Join(", ", student1.TestsTaken));
+                    student1.TakeTest(paper1, new string[] { "1A", "2D", "3D", "4A", "5A" });
+                    Console.WriteLine(string.Join(", ", student1.TestsTaken));
+
+                    student2.TakeTest(paper2, new string[] { "1C", "2D", "3A", "4C" });
+                    student2.TakeTest(paper3, new string[] { "1A", "2C", "3A", "4C", "5D", "6C", "7B" });
+                    Console.WriteLine(string.Join(", ", student2.TestsTaken));
+                    break;
                 default:
                     Console.WriteLine();
                     Console.WriteLine("Invalid option, retry.");
@@ -243,19 +259,6 @@ class Program
         }
 
 
-        // Trauner_A1.TestPaper paper1 = new Trauner_A1.TestPaper("Maths", new string[] { "1A", "2C", "3D", "4A", "5A" }, "60%");
-        // Trauner_A1.TestPaper paper2 = new Trauner_A1.TestPaper("Chemistry", new string[] { "1C", "2C", "3D", "4A" }, "75%");
-        // Trauner_A1.TestPaper paper3 = new Trauner_A1.TestPaper("Computing", new string[] { "1D", "2C", "3C", "4B", "5D", "6C", "7A" }, "75%");
 
-        // Trauner_A1.Student student1 = new Trauner_A1.Student();
-        // Trauner_A1.Student student2 = new Trauner_A1.Student();
-
-        // Console.WriteLine(string.Join(", ", student1.TestsTaken));
-        // student1.TakeTest(paper1, new string[] { "1A", "2D", "3D", "4A", "5A" });
-        // Console.WriteLine(string.Join(", ", student1.TestsTaken));
-
-        // student2.TakeTest(paper2, new string[] { "1C", "2D", "3A", "4C" });
-        // student2.TakeTest(paper3, new string[] { "1A", "2C", "3A", "4C", "5D", "6C", "7B" });
-        // Console.WriteLine(string.Join(", ", student2.TestsTaken));
     }
 }

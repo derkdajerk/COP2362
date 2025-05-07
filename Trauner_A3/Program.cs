@@ -1,7 +1,5 @@
-﻿using System.Formats.Asn1;
-using Trauner_A1;
+﻿using Trauner_A1;
 using Trauner2;
-using Trauner_A3;
 
 /**
 Name: Derek Trauner
@@ -16,14 +14,14 @@ Summary Statement: I worked on this alone.
  */
 namespace Trauner_A1 // Namespace including interfaces from version 1.
 {
-    public interface ITestPaper
+    public interface ITestPaper //interface for tests
     {
         string Subject { get; set; }
         string[] MarkScheme { get; }
         string PassMark { get; }
     }
 
-    public class TestPaper : ITestPaper
+    public class TestPaper : ITestPaper //concrete testpaper class
     {
         public string Subject { get; set; }
         public string[] MarkScheme { get; set; }
@@ -31,20 +29,20 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
         // c.	A Minimum Mark or passing grade: Assignment one uses a string representation. However, the Mark or Passing Grade should match the grading scheme.  
         public string PassMark { get; set; }
 
-        public TestPaper(string subject, string[] markScheme, string passMark)
+        public TestPaper(string subject, string[] markScheme, string passMark) // constructor
         {
             Subject = subject;
             MarkScheme = markScheme;
             PassMark = passMark;
         }
 
-        public override string ToString()
+        public override string ToString() // easier viewing when printing tests
         {
             return $"{Subject} | {string.Join(",", MarkScheme)} | {PassMark}";
         }
     }
 
-    public interface IStudent
+    public interface IStudent // interface for students
     {
         string Name { get; set; }
         string[] TestsTaken { get; set; }
@@ -52,7 +50,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
         void TakeTest(TestPaper paper, string[] answers);
     }
 
-    public class Student : IStudent
+    public class Student : IStudent // concrete student class
     {
         private string _name;
         private int _id;
@@ -70,21 +68,22 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
             set => _id = value;
         }
 
-        public Student(string name)
+        public Student(string name) // default constructor
         {
             _id = new Random().Next(1, 10000);
             _name = name;
         }
 
-        public Student(int id, string name, IEnumerable<string> existingTests)
+        public Student(int id, string name, IEnumerable<string> existingTests) // custom conscrutctor
         {
             _id = id;
             _name = name;
             testsTaken = new List<string>(existingTests);
         }
 
-        public string[] TestsTaken
+        public string[] TestsTaken //teststaken list
         {
+            //what to print when calling teststaken
             get
             {
                 if (testsTaken.Count == 0)
@@ -95,6 +94,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
                 Array.Sort(sortedTests);
                 return sortedTests;
             }
+            //setter
             set
             {
                 if (value != null)
@@ -104,7 +104,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
             }
         }
 
-        public void TakeTest(TestPaper paper, string[] answers)
+        public void TakeTest(TestPaper paper, string[] answers) // taketest method
         {
             int score = 0;
             int i = 0;
@@ -118,10 +118,38 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
             }
             int percent = (int)Math.Round((double)score * 100 / paper.MarkScheme.Length);
             string result = percent >= passMark ? "Passed!" : "Failed!";
-            testsTaken.Add($"{paper.Subject}: {result} ({percent}%)");
+            if (testsTaken.Count() == 1) // remove first no tests taken if student doesnt have a test taken yet
+            {
+                if (testsTaken[0] == "No tests taken")
+                {
+                    testsTaken.Clear();
+                    testsTaken.Add($"{paper.Subject}: {result} ({percent}%)");
+                }
+                else
+                {
+                    testsTaken.Add($"{paper.Subject}: {result} ({percent}%)");
+                }
+            }
+            else
+            {
+                testsTaken.Add($"{paper.Subject}: {result} ({percent}%)");
+            }
         }
 
-        public override string ToString()
+        public void EditTest(int index, string newTest) // edit test method since teststaken is private cant edit from outside this class
+        {
+            if (index >= 0 && index < testsTaken.Count)
+            {
+                testsTaken[index] = newTest;
+                if (testsTaken.Count == 0)
+                {
+                    testsTaken.Add("No tests taken");
+                }
+            }
+            ;
+        }
+
+        public override string ToString() // better direct printing when viewing students
         {
             return $"ID:{id} | {Name} | Tests: {string.Join(" • ", TestsTaken)}";
         }
@@ -132,7 +160,7 @@ namespace Trauner_A1 // Namespace including interfaces from version 1.
 
 namespace Trauner2 // Namespace containins code for version 2, menu items and read/write functions for students and tests
 {
-    public interface IMenuItem
+    public interface IMenuItem // menu item interface
     {
         public string Name { get; }
         public bool IsSubMenu { get; }
@@ -140,7 +168,7 @@ namespace Trauner2 // Namespace containins code for version 2, menu items and re
         public List<IMenuItem> SubMenuItems { get; }
     }
 
-    public abstract class MenuItem : IMenuItem
+    public abstract class MenuItem : IMenuItem // menu item outline
     {
         public string Name => _name;
         public bool IsSubMenu => _subMenu;
@@ -161,7 +189,7 @@ namespace Trauner2 // Namespace containins code for version 2, menu items and re
         }
     }
 
-    public class ConsoleMenuItem : MenuItem
+    public class ConsoleMenuItem : MenuItem // concrete menu item
     {
         private TextReader _in;
         private TextWriter _out;
@@ -246,10 +274,10 @@ class Program
                     HandleStudentsMenu();
                     break;
                 case 3:
-                    Console.WriteLine("=== GIVE ALL STUDENTS A TEST  (TODO) ===\n");
+                    GiveAllStudentsATest();
                     break;
                 case 4:
-                    Console.WriteLine("=== HAVE STUDENT TAKE ALL TESTS  (TODO) ===\n");
+                    GiveAllTestsToAStudent();
                     break;
                 case 5:
                     running = false;
@@ -500,7 +528,16 @@ class Program
                     SaveStudents();
                     break;
                 case 3:
-                    Console.WriteLine("notdone - Enter the new Tests Taken (ex: 75%): ");
+                    for (int i = 0; i < studentToEdit.TestsTaken.Count(); i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {studentToEdit.TestsTaken[i]}");
+                    }
+                    Console.WriteLine("Enter the test you want to edit: ");
+                    int testIndex = int.Parse(Console.ReadLine()!) - 1;
+                    Console.WriteLine("Enter the new test (Ex: Science: Failed! (50%))");
+                    string? newTest = Console.ReadLine()!;
+                    // newTest = newTest == "" ? null : newTest;
+                    studentToEdit.EditTest(testIndex, newTest);
                     SaveStudents();
                     break;
                 default:
@@ -539,8 +576,14 @@ class Program
         Student student = studentsList[studentIndex];
         ViewTests();
         Console.WriteLine("Which test would you like to give them?:");
-
-
+        int testIndex = int.Parse(Console.ReadLine()!.Trim()) - 1;
+        TestPaper test = testPapersList[testIndex];
+        Console.WriteLine("Enter the student's answers (1A,2B,3C,...): ");
+        string preFormatStudentAnswers = Console.ReadLine()!;
+        string[] studentAnswers = preFormatStudentAnswers == null ? [] : preFormatStudentAnswers.ToUpper().Split(",", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+        student.TakeTest(test, studentAnswers);
+        Console.WriteLine($"Student has taken {string.Join(", ", student.TestsTaken)}");
+        SaveStudents();
     }
 
     static void ViewStudents()
@@ -609,5 +652,95 @@ class Program
             Console.WriteLine($"Error saving students: {ex.Message}");
         }
         Console.WriteLine("Student has been saved.");
+    }
+
+    static void GiveAllStudentsATest()
+    {
+        try
+        {
+            if (studentsList.Count == 0)
+            {
+                Console.WriteLine("No students available to take tests.");
+                return;
+            }
+            if (testPapersList.Count == 0)
+            {
+                Console.WriteLine("No tests available to give.");
+                return;
+            }
+
+            ViewTests();
+            Console.WriteLine("Which test would you like all students to take?:");
+            int testIndex = int.Parse(Console.ReadLine()!.Trim()) - 1;
+            TestPaper selectedTest = testPapersList[testIndex];
+
+            Console.WriteLine($"Enter the answers for {selectedTest.Subject} (1A,2B,3C,...): ");
+            string preFormatAnswers = Console.ReadLine()!;
+            string[] answers = preFormatAnswers == null ? [] : preFormatAnswers.ToUpper().Split(",", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (Student student in studentsList)
+            {
+                student.TakeTest(selectedTest, answers);
+                Console.WriteLine($"{student.Name} has taken {selectedTest.Subject}");
+            }
+            SaveStudents();
+            Console.WriteLine("\nAll students have completed the test.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error giving test to all students: {ex.Message}");
+        }
+    }
+
+    static void GiveAllTestsToAStudent()
+    {
+        try
+        {
+            if (studentsList.Count == 0)
+            {
+                Console.WriteLine("No students available to take tests.");
+                return;
+            }
+            if (testPapersList.Count == 0)
+            {
+                Console.WriteLine("No tests available to give.");
+                return;
+            }
+
+            ViewStudents();
+            Console.WriteLine("Which student would you like to take all tests?:");
+            int studentIndex = int.Parse(Console.ReadLine()!.Trim()) - 1;
+            if (studentIndex < 0 || studentIndex >= studentsList.Count)
+            {
+                Console.WriteLine("Invalid student selection.");
+                return;
+            }
+
+            Student selectedStudent = studentsList[studentIndex];
+
+            foreach (TestPaper test in testPapersList)
+            {
+                Console.WriteLine($"\nTest: {test.Subject}");
+                Console.WriteLine($"Enter {test.MarkScheme.Length} answers (1A,2B,3C,...): ");
+                string preFormatAnswers = Console.ReadLine()!;
+                string[] answers = preFormatAnswers == null ? [] :
+                    preFormatAnswers.ToUpper().Split(",", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+
+                if (answers.Length != test.MarkScheme.Length)
+                {
+                    Console.WriteLine($"Error: You must provide exactly {test.MarkScheme.Length} answers. Skipping this test.");
+                    continue;
+                }
+
+                selectedStudent.TakeTest(test, answers);
+                Console.WriteLine($"{selectedStudent.Name} has taken {test.Subject}");
+            }
+            SaveStudents();
+            Console.WriteLine($"\n{selectedStudent.Name} has completed all tests.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error having student take all tests: {ex.Message}");
+        }
     }
 }
